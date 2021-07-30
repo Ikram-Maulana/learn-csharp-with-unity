@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isItGoingToRain: 1
+  amIanEmployee: 1
 --- !u!135 &1497163301
 SphereCollider:
   m_ObjectHideFlags: 0
