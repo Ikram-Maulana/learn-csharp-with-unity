@@ -6,6 +6,7 @@ public class Rain : MonoBehaviour
 {
     public bool isItGoingToRain = true;
     public bool amIanEmployee = true;
+    public int age = 18;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,14 @@ public class Rain : MonoBehaviour
         } else
         {
             Debug.Log("Yes, you are an employee");
+        }
+
+        if(!(age >= 18))
+        {
+            Debug.Log("Sorry!, you can grab only coke!");
+        } else
+        {
+            Debug.Log("Ok, you can grab a beer");
         }
             
     }

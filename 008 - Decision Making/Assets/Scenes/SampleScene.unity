@@ -333,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isItGoingToRain: 1
   amIanEmployee: 1
+  age: 18
 --- !u!135 &1497163301
 SphereCollider:
   m_ObjectHideFlags: 0
