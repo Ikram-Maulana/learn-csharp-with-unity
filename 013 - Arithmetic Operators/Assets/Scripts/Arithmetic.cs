@@ -5,6 +5,7 @@ using UnityEngine;
 /*
  * Arithmetic binary operators: +, -, *, /, % (reminder)
  * Unary operators ++, --, -, +;
+ * Compound assignment: +=, -=, *=, /=, %=
  */
 public class Arithmetic : MonoBehaviour
 {
@@ -12,11 +13,35 @@ public class Arithmetic : MonoBehaviour
     private float applePrice = 2.5f;
     private float pearPrice = 3.5f;
     private float pocketMoney = 300f;
+    private int numberOfApples = 10;
+    private int numberOfPears = 10;
 
     private void Awake()
     {
-        BinaryOperators();
-        UnaryOperators();
+        // BinaryOperators();
+        // UnaryOperators();
+        CompoundAssignment();
+    }
+
+    private void CompoundAssignment()
+    {
+        // variable op= variable op value
+        // 11
+        numberOfApples = numberOfApples + 1;
+        Debug.Log("number of apples +1 : " + numberOfApples);
+        // numberOfApples = numberOfApples + 5
+        // 16
+        numberOfApples += 5;
+        Debug.Log("number of apples +5 : " + numberOfApples);
+        // 32
+        numberOfApples *= 2;
+        Debug.Log("number of apples *2 : " + numberOfApples);
+        // 8
+        numberOfApples /= 4;
+        Debug.Log("number of apples /4 : " + numberOfApples);
+        // 2
+        numberOfApples %= 3;
+        Debug.Log("number of apples %2 : " + numberOfApples);
     }
 
     private void UnaryOperators()
