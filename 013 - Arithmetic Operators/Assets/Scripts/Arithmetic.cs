@@ -15,6 +15,49 @@ public class Arithmetic : MonoBehaviour
 
     private void Awake()
     {
+        BinaryOperators();
+        UnaryOperators();
+    }
+
+    private void UnaryOperators()
+    {
+        int myNumber = 4;
+        Debug.Log(+myNumber);
+        myNumber = -4;
+        Debug.Log(+myNumber);
+        
+        // - di unary
+        // jika positif akan negatif, jika negatif akan positif
+        Debug.Log(-myNumber);
+        myNumber = 4;
+        Debug.Log(-myNumber);
+
+        // pra increment
+        myNumber = 5;
+        Debug.Log(myNumber + " incremented = " + (++myNumber));
+        Debug.Log(myNumber + " after being incremented");
+
+        // post increment
+        Debug.Log(myNumber + " incremented = " + (myNumber++));
+        Debug.Log(myNumber + " after being incremented");
+
+        // ini akan menjadi myNumber + 1
+        myNumber = 15;
+        myNumber = ++myNumber;
+        Debug.Log(myNumber);
+        int myNewNumber = myNumber++;
+        Debug.Log(myNewNumber);
+        Debug.Log(myNumber);
+        myNewNumber = ++myNumber;
+        Debug.Log(myNewNumber);
+        Debug.Log(myNumber);
+        myNewNumber = --myNumber;
+        Debug.Log(myNewNumber);
+        Debug.Log(myNumber);
+    }
+
+    private void BinaryOperators()
+    {
         Debug.Log("Addition: 4+4 = " + (4 + 4));
         Debug.Log("Substraction: 14-4 = " + (14 - 4));
         Debug.Log("Multification: 4*4 = " + (4 * 4));
@@ -22,7 +65,7 @@ public class Arithmetic : MonoBehaviour
 
         // int remainder = 38 / 3;
         // otomatis c# menentukan tipe outputnya
-        var div = (double) 38 / 3;
+        var div = (double)38 / 3;
         Debug.Log("38 / 3 = " + div);
 
         // 12 * 3 = 36 -> 38 - 36 = 2
