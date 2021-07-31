@@ -21,11 +21,25 @@ public class Arithmetic : MonoBehaviour
         // BinaryOperators();
         // UnaryOperators();
         CompoundAssignment();
+
+        // kecuali disimpan disini berarti bisa diakses oleh semua yang ada di method awake
+        int accountNumber = 1234;
+        if (numberOfApples > 10)
+        {
+            // hanya bisa diakses di if kalau variablenya disimpan disini
+            // int accountNumber = 1234;
+            accountNumber = 222;
+            pocketMoney = 100f;
+        } else
+        {
+            // accounNumber yang di if jika diakses disini akan error
+            accountNumber = 2;
+        }
     }
 
     private void CompoundAssignment()
     {
-        // variable op= variable op value
+        // variable op= variable op value 
         // 11
         numberOfApples = numberOfApples + 1;
         Debug.Log("number of apples +1 : " + numberOfApples);
@@ -46,6 +60,7 @@ public class Arithmetic : MonoBehaviour
 
     private void UnaryOperators()
     {
+        // myNumber is only visible inside this method
         int myNumber = 4;
         Debug.Log(+myNumber);
         myNumber = -4;
