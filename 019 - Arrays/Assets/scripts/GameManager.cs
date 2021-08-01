@@ -35,6 +35,55 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] Enemies;
 
+    public Hashtable personalInfo = new Hashtable();
+    // <key, value>
+    public Dictionary<string, string> indoNumber = new Dictionary<string, string>()
+    {
+        {"one", "satu"},
+        {"two", "dua"},
+        {"three", "tiga"},
+        {"four", "empat"}
+    };
+
+    void populateNumbers()
+    {
+        indoNumber["two"] = "Dua";
+        indoNumber["five"] = "Lima";
+        indoNumber.Add("six", "enam");
+
+        if (!indoNumber.ContainsKey("seven"))
+        {
+            indoNumber.Add("seven", "Tujuh");
+            print("Seven in Bahasa is " + indoNumber["seven"]);
+        }
+    }
+
+    void PopulatePersonalInfo()
+    {
+        var myObject = GameObject.Find("Sphere");
+        // key, value
+        personalInfo.Add("fullname", "Ikram Maulana");
+        personalInfo.Add("age", 20);
+        personalInfo.Add("object", myObject);
+        personalInfo.Add("nickname", "Ikram");
+        personalInfo.Add(10, "Level");
+        print(personalInfo[10]);
+        // method[key]
+        print("My fullname is " + personalInfo["fullname"]);
+        // dalam dictionary var tidak dapat mendefinisikan tipe data apa maka harus ditambah string/tipedata lain
+        var nickname = (string) personalInfo["nickname"];
+        print("My nickname is " + nickname);
+
+        if (personalInfo.Contains("age"))
+        {
+            print("I am " + personalInfo["age"] + " years old");
+        }
+        if (personalInfo.ContainsValue(myObject))
+        {
+            print("I have a " + myObject.tag);
+        }
+    }
+
     ArrayList userInfo = new ArrayList();
     List<Object> userInfo2 = new List<Object>();
 
@@ -68,6 +117,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        populateNumbers();
+        Debug.Log("=======================");
+
+        PopulatePersonalInfo();
+        Debug.Log("=======================");
+
+
         populateUserInfo();
         //showData();
 
