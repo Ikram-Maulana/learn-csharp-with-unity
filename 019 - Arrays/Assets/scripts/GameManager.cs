@@ -9,12 +9,25 @@ public class GameManager : MonoBehaviour
 
     public int[] numbers;
 
-    /* public string[] Enemies = { 
-        "Bad guy", 
-        "Cyclope", 
-        "Batman", 
-        "Car", 
-        "Boss" 
+    public string[] Enemies2 = {
+        "Bad guy",
+        "Bad guy",
+        "Cyclope",
+        "Batman",
+        "Car",
+        "Boss"
+    };
+
+    // List<Type> = new List<Type>();
+    List<string> newEnemies = new List<string>();
+    /*List<string> newEnemies = new List<string>()
+    {
+        "Bad guy",
+        "Bad guy",
+        "Cyclope",
+        "Batman",
+        "Car",
+        "Boss"
     };
     */
 
@@ -22,6 +35,27 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        List<string> enemies3 = new List<string>(Enemies2);
+        print("new enemies3 are " + enemies3.Count);
+
+        newEnemies.AddRange(Enemies2);
+        newEnemies.Add("Black Monster");
+        print("new enemies are " + newEnemies.Count);
+        
+        // harpus element di list spesifik yang duplicate pake remove jadi yang diambil cuma 1
+        enemies3.Remove("Bad guy");
+        print("new enemies3 are " + enemies3.Count);
+        if(enemies3.Contains("Bad guy"))
+        {
+            print("enemies3 still have a bad guy");
+        }
+
+        // bad guy, cyclope, batman, car, boss
+        // misal mau insert setelah cyclope
+        enemies3.Insert(2, "Good guy");
+        // foreach print
+        enemies3.ForEach(print);
+
         // numbers = new int[] { 3, 4, 5, 7 };
         numbers = new int[10];
         numbers[0] = 4;
