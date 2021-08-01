@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public int[] numbers;
 
     public string[] Enemies2 = {
-        "Bad guy",
-        "Bad guy",
+        "Bad guy1",
+        "Bad guy2",
         "Cyclope",
         "Batman",
         "Car",
@@ -33,13 +33,30 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] Enemies;
 
+    void showData()
+    {
+        // Acess cyclope
+        var currentEnemy = Enemies2[2];
+        print("Enemy at position 3 is " + currentEnemy);
+        currentEnemy = Enemies2[Enemies2.Length-1];
+        print("Last enemy is " + currentEnemy);
+
+        var currentNewEnemy = newEnemies[0];
+        print("Current new enemy is " + currentNewEnemy);
+        currentNewEnemy = newEnemies[newEnemies.Count-1];
+        print("Last new enemy is " + currentNewEnemy);
+    }
+
     private void Awake()
     {
+        //showData();
+
         List<string> enemies3 = new List<string>(Enemies2);
         print("new enemies3 are " + enemies3.Count);
 
         newEnemies.AddRange(Enemies2);
         newEnemies.Add("Black Monster");
+        showData();
         print("new enemies are " + newEnemies.Count);
         
         // harpus element di list spesifik yang duplicate pake remove jadi yang diambil cuma 1
