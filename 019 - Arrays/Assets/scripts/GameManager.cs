@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// Pakai alias
+using Object = System.Object;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +35,23 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] Enemies;
 
+    ArrayList userInfo = new ArrayList();
+    List<Object> userInfo2 = new List<Object>();
+
+    void populateUserInfo()
+    {
+        // Name
+        userInfo2.Add("Ikram Maulana");
+        // Alias
+        userInfo2.Add("Ikram");
+        // Age
+        userInfo2.Add(20);
+        userInfo2.Add(GameObject.Find("Sphere"));
+        print("Item at position 3 is " + userInfo2[3].GetType());
+        GameObject userObject = (GameObject) userInfo2[3];
+        print("Item at position 3 is " + userObject.tag);
+    }
+
     void showData()
     {
         // Acess cyclope
@@ -49,6 +68,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        populateUserInfo();
         //showData();
 
         List<string> enemies3 = new List<string>(Enemies2);
