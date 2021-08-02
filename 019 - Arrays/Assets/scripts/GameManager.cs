@@ -84,7 +84,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    ArrayList userInfo = new ArrayList();
+    ArrayList userInfo = new ArrayList() 
+    {
+        "Ikram Maulana",
+        20,
+        "Sukabumi",
+        "Indonesia",
+        true
+    };
     List<Object> userInfo2 = new List<Object>();
 
     void populateUserInfo()
@@ -115,8 +122,45 @@ public class GameManager : MonoBehaviour
         print("Last new enemy is " + currentNewEnemy);
     }
 
+    void ShowEnemies()
+    {
+        // kalau di php foreach method as alias
+        // kalau c# bikin dlu  -> var alias in methods
+        int count = 0;
+        foreach ( var enemy in Enemies2)
+        {
+            print(count + " - " + enemy);
+            count++;
+        }
+    }
+
+    void ShowUserInfo()
+    {
+        int count = 0;
+        foreach (var info in userInfo)
+        {
+            print(count + " - " + info);
+            count++;
+        }
+    }
+
+    void ShowUserInfo2()
+    {
+        int count = 0;
+        foreach (var info2 in userInfo2)
+        {
+            print(count + " - " + info2);
+            count++;
+        }
+    }
+
     private void Awake()
     {
+        Debug.Log("==========SHOW USERINFO=============");
+        ShowUserInfo();
+        Debug.Log("==========SHOW ENEMIES=============");
+        ShowEnemies();
+        Debug.Log("=======================");
         populateNumbers();
         Debug.Log("=======================");
 
@@ -126,6 +170,9 @@ public class GameManager : MonoBehaviour
 
         populateUserInfo();
         //showData();
+        Debug.Log("==========SHOW USERINFO2=============");
+        ShowUserInfo2();
+        Debug.Log("=======================");
 
         List<string> enemies3 = new List<string>(Enemies2);
         print("new enemies3 are " + enemies3.Count);
