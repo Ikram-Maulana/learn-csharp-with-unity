@@ -45,6 +45,17 @@ public class GameManager : MonoBehaviour
         {"four", "empat"}
     };
 
+    int FindItemIndex(IList arr, string item)
+    {
+        for(int i = 0; i < arr.Count; i++)
+        {
+            if(item == (string) arr[i]){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     void populateNumbers()
     {
         indoNumber["two"] = "Dua";
@@ -231,6 +242,17 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        newEnemies.Add("Spider");
+        newEnemies.Add("Boss");
+        int bossIdx = FindItemIndex(newEnemies, "Boss");
+        if(bossIdx > -1)
+        {
+            print("Boss was found at position " + bossIdx);
+        } else
+        {
+            print("Boss was not found!");
+        }
+        return;
         Debug.Log("==========SHOW USERINFO=============");
         ShowUserInfo();
         Debug.Log("=======================");
