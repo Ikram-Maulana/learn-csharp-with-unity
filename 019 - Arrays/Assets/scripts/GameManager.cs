@@ -154,6 +154,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void ShowDictHashTable()
+    {
+        foreach(var k in personalInfo.Keys)
+        {
+            print(k + " = " + personalInfo[k]);
+        }
+        Debug.Log("==========DICTIONARY ENTRY=============");
+        foreach (DictionaryEntry element in personalInfo)
+        {
+            print(element.Key + " = " + element.Value);
+        }
+        Debug.Log("==========DICTIONARY KEYVALUEPAIR=============");
+        foreach (KeyValuePair<string, string> number in indoNumber)
+        {
+            print(number.Key.ToUpper() + " is = " + number.Value);
+        }
+    }
+
     private void Awake()
     {
         Debug.Log("==========SHOW USERINFO=============");
@@ -165,6 +183,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("=======================");
 
         PopulatePersonalInfo();
+        Debug.Log("=======================");
+        Debug.Log("==========SHOW PERSONALINFO=============");
+        ShowDictHashTable();
         Debug.Log("=======================");
 
 
