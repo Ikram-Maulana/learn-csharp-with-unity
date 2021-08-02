@@ -45,6 +45,17 @@ public class GameManager : MonoBehaviour
         {"four", "empat"}
     };
 
+    int FindItemIndex(IList arr, string item)
+    {
+        for(int i = 0; i < arr.Count; i++)
+        {
+            if(item == (string) arr[i]){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     void populateNumbers()
     {
         indoNumber["two"] = "Dua";
@@ -84,7 +95,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    ArrayList userInfo = new ArrayList();
+    ArrayList userInfo = new ArrayList() 
+    {
+        "Ikram Maulana",
+        20,
+        "Sukabumi",
+        "Indonesia",
+        true
+    };
     List<Object> userInfo2 = new List<Object>();
 
     void populateUserInfo()
@@ -115,17 +133,148 @@ public class GameManager : MonoBehaviour
         print("Last new enemy is " + currentNewEnemy);
     }
 
+    void ShowEnemies()
+    {
+        // kalau di php foreach method as alias
+        // kalau c# bikin dlu  -> var alias in methods
+        int count = 0;
+        foreach ( var enemy in Enemies2)
+        {
+            print(count + " - " + enemy);
+            count++;
+        }
+    }
+
+    void ShowUserInfo()
+    {
+        int wCount = 0;
+        while (wCount < 10)
+        {
+            print("Printed with while loop: " + wCount);
+            wCount++; 
+        }
+
+        wCount = 10;
+        do
+        {
+            print("Printed with reverse while loop: " + wCount);
+            wCount--;
+        } while (wCount > 0);
+
+        wCount = 1;
+        while (true)
+        {
+            if (wCount % 4 == 0 && wCount%400 == 0)
+            {
+                print(wCount + " is a leap year");
+                break;
+            }
+            wCount++;
+        }
+
+        for (int i = 0; i < 100; i++)
+        {
+            if (i == 69)
+            {
+                break;
+            }
+            if (i%2 != 0)
+            {
+                continue;
+            }
+            print("i = " + i);
+        }
+
+        int j = 0;
+        for (; ; )
+        {
+            if (j > 9)
+            {
+                break;
+            }
+            print("j = " + j);
+            j++;
+        }
+
+        int count = 0;
+        print("USER INFO WITH FOR LOOP");
+        int counter = userInfo.Count;
+        for(count = 0; count < counter; count++)
+        {
+            print(count + " - " + userInfo[count]);
+        }
+
+        count = 0;
+        foreach (var info in userInfo)
+        {
+            print(count + " - " + info);
+            count++;
+        }
+    }
+
+    void ShowUserInfo2()
+    {
+        int count = 0;
+        foreach (var info2 in userInfo2)
+        {
+            print(count + " - " + info2);
+            count++;
+        }
+    }
+
+    void ShowDictHashTable()
+    {
+        foreach(var k in personalInfo.Keys)
+        {
+            print(k + " = " + personalInfo[k]);
+        }
+        Debug.Log("==========DICTIONARY ENTRY=============");
+        foreach (DictionaryEntry element in personalInfo)
+        {
+            print(element.Key + " = " + element.Value);
+        }
+        Debug.Log("==========DICTIONARY KEYVALUEPAIR=============");
+        foreach (KeyValuePair<string, string> number in indoNumber)
+        {
+            print(number.Key.ToUpper() + " is = " + number.Value);
+        }
+    }
+
     private void Awake()
     {
+        newEnemies.Add("Spider");
+        newEnemies.Add("Boss");
+        int bossIdx = FindItemIndex(newEnemies, "Boss");
+        if(bossIdx > -1)
+        {
+            print("Boss was found at position " + bossIdx);
+        } else
+        {
+            print("Boss was not found!");
+        }
+        return;
+        Debug.Log("==========SHOW USERINFO=============");
+        ShowUserInfo();
+        Debug.Log("=======================");
+        return;
+        Debug.Log("==========SHOW ENEMIES=============");
+        ShowEnemies();
+        Debug.Log("=======================");
         populateNumbers();
         Debug.Log("=======================");
 
         PopulatePersonalInfo();
         Debug.Log("=======================");
+        Debug.Log("==========SHOW PERSONALINFO=============");
+        ShowDictHashTable();
+        Debug.Log("=======================");
 
 
         populateUserInfo();
         //showData();
+        Debug.Log("==========SHOW USERINFO2=============");
+        ShowUserInfo2();
+        Debug.Log("=======================");
 
         List<string> enemies3 = new List<string>(Enemies2);
         print("new enemies3 are " + enemies3.Count);
