@@ -11,6 +11,41 @@ public class Person
     public Car car;
     public Person spouse;
 
+    // Constructor
+    public Person()
+    {
+        Debug.Log("creating a new object with the default constructor");
+        age = 2;
+    }
+
+    public Person(string firstName, string lastname)
+    {
+        Debug.Log("creating a new object with the default constructor2");
+        this.firstName = firstName;
+        lastName = lastname;
+    }
+
+    public Person(string firstName, string lastname, int age = 2):this (firstName, lastname)
+    {
+        Debug.Log("creating a new object with the default constructor2");
+        this.age = age;
+    }
+
+    public Person(string firstName, 
+        string lastname, 
+        Person spouse,
+        int age = 2
+        ) : this(firstName, lastname, age)
+        // yang this(firstname, lastname, age) diatas mengambil parameter dari method sebelumnya yang ada (firstname, lastname, age) yang sudah full
+    {
+        Debug.Log("creating a new object with the default constructor3");
+        /* this.firstName = firstName;
+        lastName = lastname;
+        this.age = age;
+        */
+        this.spouse = spouse;
+    }
+
     public bool IsMarriedTo(Person spouse)
     {
         if(spouse == null)

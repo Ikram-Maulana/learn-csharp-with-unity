@@ -13,27 +13,21 @@ public class Family : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        father = new Person();
-        father.firstName = "Juan";
-        father.lastName = "Gabriel";
-        father.age = 28;
+        father = new Person("Juan", "Gabriel", 28);
+        print("father's default age is " + father.age);
         father.isMarried = true;
 
-        mother = new Person();
-        mother.firstName = "Mar";
-        mother.lastName = "Cardona";
-        mother.age = 20;
+        mother = new Person("Mar", "Mardona", father, 20);
         mother.isFather = false;
         mother.isMarried = true;
 
         // assign spouse
         father.spouse = mother;
-        mother.spouse = father;
 
         // mother.spouse = null
         try
         {
-            if (father.IsMarriedTo(null))
+            if (father.IsMarriedTo(mother))
             {
                 print(father.firstName + " is married to " + mother.firstName);
             }
