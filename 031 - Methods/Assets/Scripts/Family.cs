@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,14 +31,20 @@ public class Family : MonoBehaviour
         mother.spouse = father;
 
         // mother.spouse = null
-
-        if (father.IsMarriedTo(mother))
+        try
         {
-            print(father.firstName + " is married to " + mother.firstName);
+            if (father.IsMarriedTo(null))
+            {
+                print(father.firstName + " is married to " + mother.firstName);
+            }
+            else
+            {
+                print(father.firstName + " is not married to " + mother.firstName);
+            }
         }
-        else
+        catch (Exception exec)
         {
-            print(father.firstName + " is not married to " + mother.firstName);
+            print("an error occured " + exec.Message);
         }
 
         son = new Person();

@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-
 public class Person 
 {
     public string firstName = "";
@@ -17,8 +15,10 @@ public class Person
     {
         if(spouse == null)
         {
-            return false;
+            // return false;
+            throw new ArgumentException("Spouse parameter cannot be null");
         }
+        // int result = 100 / age;
         Debug.Log(spouse.firstName);
         return this.spouse == spouse ? true : false;
     }
